@@ -1,8 +1,15 @@
 module Main where
 
-import Data.Digits
-import Text.Printf
-import Test.QuickCheck
+import           Data.Digits
+import           Test.QuickCheck
+import           Text.Printf
+
+-- | unDigits . digits should be the identity, in any positive base.
+prop_digitsRoundTrip
+    :: Integer -- ^ The integer to test.
+    -> Integer -- ^ The base to use.
+    -> Property
+prop_digitsRoundTrip i b = i > 0 ==> b > 0 ==> i == (unDigits b . digits b) i
 
 tests :: [([Char], IO ())]
 tests = [

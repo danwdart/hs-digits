@@ -1,8 +1,7 @@
-module Data.Digits (mDigits, digits, mDigitsRev, digitsRev, unDigits, prop_digitsRoundTrip) where
+module Data.Digits (mDigits, digits, mDigitsRev, digitsRev, unDigits) where
 
-import Test.QuickCheck
-import Data.Maybe (fromJust)
-import Data.List (genericTake)
+import           Data.List       (genericTake)
+import           Data.Maybe      (fromJust)
 
 -- | Returns the digits of a positive integer as a Maybe list, in reverse order
 --   or Nothing if a zero or negative base is given
@@ -51,10 +50,3 @@ unDigits :: Integral n
     -> [n] -- ^ The digits of the number in list form.
     -> n   -- ^ The original number.
 unDigits base = foldl (\ a b -> a * base + b) 0
-
--- | unDigits . digits should be the identity, in any positive base.
-prop_digitsRoundTrip
-    :: Integer -- ^ The integer to test.
-    -> Integer -- ^ The base to use.
-    -> Property
-prop_digitsRoundTrip i b = i > 0 ==> b > 0 ==> i == (unDigits b . digits b) i
