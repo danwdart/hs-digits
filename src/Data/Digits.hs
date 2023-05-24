@@ -1,7 +1,7 @@
 module Data.Digits (mDigits, digits, mDigitsRev, digitsRev, unDigits) where
 
-import           Data.List       (genericTake)
-import           Data.Maybe      (fromJust)
+import           Data.List  (genericTake)
+import           Data.Maybe (fromJust)
 
 -- | Returns the digits of a positive integer as a Maybe list, in reverse order
 --   or Nothing if a zero or negative base is given
