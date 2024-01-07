@@ -10,7 +10,7 @@ license-file:  LICENSE
 copyright:     (c) 2009-2016 Henry Bucklow, Charlie Harvey, 2023 Dan Dart
 author:        Henry Bucklow, Dan Dart
 maintainer:    cabal@dandart.co.uk
-tested-with:   GHC ==9.2.6, ==9.2.7, ==9.4.8
+tested-with:   GHC ==9.2.6
 
 library
   hs-source-dirs:   src
