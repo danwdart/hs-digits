@@ -21,6 +21,10 @@ let
     packages = p: [
       p.digits
     ];
+    shellHook = ''
+      gen-hie > hie.yaml
+      for i in $(find -type f | grep -v dist-newstyle); do krank $i; done
+    '';
     buildInputs = tools.defaultBuildTools;
     withHoogle = false;
   };
